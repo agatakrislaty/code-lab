@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Poznaj cztery kroki obsługi zadłużenia.">
+  <title>Jak działamy? — Obsługa zadłużenia</title>
+
+  <style>
+    /* Zmień te zmienne, aby dostosować kolory całej sekcji. */
+    :root {
+      --brand: #DC143C;
+      --navy: #003D7A;
+      --background: #F5F5F5;
+      --white: #FFFFFF;
+      --content-width: 1200px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--navy);
+      background: var(--background);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    .process {
+      max-width: var(--content-width);
+      margin-inline: auto;
+      padding: 80px 32px;
+      text-align: center;
+    }
+
+    .process__heading {
+      margin: 0;
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      line-height: 1.15;
+      letter-spacing: -0.035em;
+    }
+
+    .process__subtitle {
+      max-width: 760px;
+      margin: 20px auto 0;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      text-wrap: balance;
+    }
+
+    /* Lista zachowuje naturalną kolejność procesu dla czytników ekranu. */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 48px;
+      margin: 60px 0 44px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .step {
+      position: relative;
+      min-width: 0;
+    }
+
+    .step__icon {
+      display: block;
+      width: 144px;
+      height: 144px;
+      margin: 0 auto 24px;
+      color: var(--brand);
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .step__ring {
+      stroke-width: 4;
+    }
+
+    .step__ring--dashed {
+      stroke-dasharray: 7 7;
+    }
+
+    .step__number {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.75rem;
+      font-weight: 750;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .step__title {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 700;
+      line-height: 1.45;
+      text-wrap: balance;
+    }
+
+    .step__description {
+      margin: 10px 0 0;
+      font-size: 0.94rem;
+      text-wrap: balance;
+    }
+
+    /* Strzałka znajduje się pośrodku odstępu między sąsiednimi ikonami. */
+    .step__arrow {
+      position: absolute;
+      top: 58px;
+      right: -42px;
+      width: 36px;
+      height: 28px;
+      color: var(--brand);
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      max-width: 100%;
+      padding: 14px 34px;
+      border: 2px solid var(--brand);
+      border-radius: 28px;
+      background: var(--brand);
+      color: var(--white);
+      font: inherit;
+      font-size: 0.85rem;
+      font-weight: 750;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition: background-color 160ms, color 160ms;
+    }
+
+    .button:hover {
+      background: var(--white);
+      color: var(--brand);
+    }
+
+    .button:focus-visible {
+      outline: 3px solid var(--navy);
+      outline-offset: 5px;
+    }
+
+    .process__details {
+      max-width: 680px;
+      margin: 28px auto 0;
+      padding: 24px;
+      border-left: 4px solid var(--brand);
+      border-radius: 8px;
+      background: var(--white);
+      text-align: left;
+    }
+
+    .process__details h3 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+    }
+
+    .process__details p {
+      margin: 0;
+    }
+
+    /* Na mniejszych ekranach proces zmienia się w pionową listę. */
+    @media (max-width: 900px) {
+      .process {
+        padding: 52px 24px;
+      }
+
+      .steps {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 62px;
+        max-width: 380px;
+        margin: 44px auto 36px;
+      }
+
+      .step__icon {
+        margin-bottom: 18px;
+      }
+
+      .step__arrow {
+        top: auto;
+        right: auto;
+        bottom: -45px;
+        left: calc(50% - 18px);
+        transform: rotate(90deg);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .button {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <section class="process" aria-labelledby="process-heading">
+      <header>
+        <h1 class="process__heading" id="process-heading">Jak działamy?</h1>
+        <p class="process__subtitle">
+          Profesjonalnie, szybko, z dbałością o dobre relacje
+          pomiędzy Tobą a klientem.
+        </p>
+      </header>
+
+      <ol class="steps" role="list">
+        <li class="step">
+          <!-- Ikony są dekoracyjne: ich znaczenie opisują nagłówki. -->
+          <svg class="step__icon" viewBox="0 0 144 144"
+               aria-hidden="true" focusable="false">
+            <circle class="step__ring" cx="72" cy="72" r="67"/>
+            <path d="M43 46h39a9 9 0 0 1 9 9v19a9 9 0 0 1-9 9H60L45 94V83h-2a9 9 0 0 1-9-9V55a9 9 0 0 1 9-9Z"/>
+            <path d="M95 62h6a9 9 0 0 1 9 9v20a9 9 0 0 1-9 9h-2v10L85 100H73a9 9 0 0 1-9-9"/>
+            <path d="M47 59h30M47 69h20"/>
+          </svg>
+
+          <span class="step__number">Krok 01</span>
+          <h2 class="step__title">Negocjacje polubowne z Twoim klientem</h2>
+          <p class="step__description">
+            Kontakt i rozmowa o polubownym rozwiązaniu sprawy.
+          </p>
+
+          <svg class="step__arrow" viewBox="0 0 36 28"
+               aria-hidden="true" focusable="false">
+            <path d="M3 14h29M23 5l9 9-9 9"/>
+          </svg>
+        </li>
+
+        <li class="step">
+          <svg class="step__icon" viewBox="0 0 144 144"
+               aria-hidden="true" focusable="false">
+            <circle class="step__ring" cx="72" cy="72" r="67"/>
+            <path d="M85 108H45V37h37l15 15v17"/>
+            <path d="M82 37v17h15M56 61h25M56 73h16M56 85h11"/>
+            <!-- Pióro: korpus, stalówka i nacięcie. -->
+            <path d="m70 104 7-22 25-25a6 6 0 0 1 9 9L86 91Z"/>
+            <path d="m77 82 9 9M97 62l9 9M70 104l10-10"/>
+          </svg>
+
+          <span class="step__number">Krok 02</span>
+          <h2 class="step__title">
+            Dopisanie danych dłużnika do Krajowego Rejestru Długów
+          </h2>
+          <p class="step__description">
+            Udokumentowanie danych dotyczących zadłużenia.
+          </p>
+
+          <svg class="step__arrow" viewBox="0 0 36 28"
+               aria-hidden="true" focusable="false">
+            <path d="M3 14h29M23 5l9 9-9 9"/>
+          </svg>
+        </li>
+
+        <li class="step">
+          <svg class="step__icon" viewBox="0 0 144 144"
+               aria-hidden="true" focusable="false">
+            <circle class="step__ring" cx="72" cy="72" r="67"/>
+            <!-- Moneta i strzałka symbolizują odzyskanie środków. -->
+            <circle cx="65" cy="49" r="15"/>
+            <path d="M69 43h-6a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-6M65 39v4M65 55v4"/>
+            <path d="M98 67V40M89 49l9-9 9 9"/>
+            <!-- Otwarta dłoń. -->
+            <path d="m35 89 12-10 18 1 13 8h13a5 5 0 0 1 0 10H72"/>
+            <path d="m43 108 14-8 24 8a13 13 0 0 0 12-2l19-15a5 5 0 0 0-6-8l-10 7"/>
+            <path d="m29 91 10-7 14 20-10 7Z"/>
+          </svg>
+
+          <span class="step__number">Krok 03</span>
+          <h2 class="step__title">
+            Spłata zadłużenia i odzyskanie kosztów windykacji
+          </h2>
+          <p class="step__description">
+            Rozliczenie należności i kosztów prowadzonej sprawy.
+          </p>
+
+          <svg class="step__arrow" viewBox="0 0 36 28"
+               aria-hidden="true" focusable="false">
+            <path d="M3 14h29M23 5l9 9-9 9"/>
+          </svg>
+        </li>
+
+        <li class="step">
+          <svg class="step__icon" viewBox="0 0 144 144"
+               aria-hidden="true" focusable="false">
+            <circle class="step__ring step__ring--dashed"
+                    cx="72" cy="72" r="67"/>
+            <!-- Młotek sędziowski i podstawa. -->
+            <g transform="rotate(-40 72 65)">
+              <rect x="53" y="43" width="38" height="24" rx="3"/>
+              <path d="M59 43v24M85 43v24"/>
+              <rect x="68" y="67" width="8" height="35" rx="3"/>
+            </g>
+            <path d="M51 105h44a5 5 0 0 1 5 5v3H46v-3a5 5 0 0 1 5-5Z"/>
+          </svg>
+
+          <span class="step__number">Krok 04 · w razie potrzeby</span>
+          <h2 class="step__title">
+            W przypadku braku spłaty zadłużenia — rekomendacja działań sądowych
+          </h2>
+          <p class="step__description">
+            Wskazanie dalszych kroków w nierozwiązanej sprawie.
+          </p>
+        </li>
+      </ol>
+
+      <!-- Działający przycisk ujawnia dodatkową informację. -->
+      <button class="button" id="details-toggle" type="button"
+              aria-expanded="false" aria-controls="process-details">
+        DOWIEDŹ SIĘ WIĘCEJ
+      </button>
+
+      <div class="process__details" id="process-details" hidden>
+        <h3>Proces krok po kroku</h3>
+        <p>
+          Zaczynamy od negocjacji polubownych. Kolejne kroki obejmują
+          dopisanie danych do Krajowego Rejestru Długów oraz rozliczenie
+          spłaty zadłużenia. W przypadku braku spłaty rekomendujemy
+          działania sądowe.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Natywny przycisk obsługuje klawiaturę; aria-expanded podaje jego stan.
+    const toggle = document.getElementById("details-toggle");
+    const details = document.getElementById("process-details");
+
+    toggle.addEventListener("click", () => {
+      const expanded = toggle.getAttribute("aria-expanded") === "true";
+
+      toggle.setAttribute("aria-expanded", String(!expanded));
+      details.hidden = expanded;
+    });
+  </script>
+</body>
+</html>
