@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Poznaj cztery kroki procesu odzyskiwania należności.">
+  <title>Jak działamy? — Proces odzyskiwania należności</title>
+  <style>
+    /* Kolory i szerokość sekcji można zmienić w jednym miejscu. */
+    :root {
+      --red: #DC143C;
+      --blue: #003D7A;
+      --surface: #F5F5F5;
+      --width: 1240px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--surface);
+      color: var(--blue);
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    .process {
+      max-width: var(--width);
+      margin-inline: auto;
+      padding: clamp(48px, 7vw, 100px) 28px 64px;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.3rem, 4.5vw, 3.5rem);
+      font-weight: 750;
+      letter-spacing: -.045em;
+      line-height: 1.15;
+    }
+    .subtitle {
+      max-width: 720px;
+      margin: 22px auto 0;
+      font-size: clamp(1rem, 1.6vw, 1.2rem);
+      text-wrap: balance;
+    }
+
+    /* Semantyczna lista opisuje kolejność, strzałki są dekoracyjne. */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 42px;
+      list-style: none;
+      padding: 0;
+      margin: 64px 0 46px;
+    }
+    .step { position: relative; min-width: 0; }
+    .icon {
+      display: block;
+      width: 152px;
+      height: 152px;
+      margin: 0 auto 25px;
+      fill: none;
+      stroke: var(--red);
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .icon .blue { stroke: var(--blue); }
+    .icon .ring { stroke-width: 4; }
+    .icon .optional { stroke-dasharray: 7 8; }
+    .number {
+      display: block;
+      margin-bottom: 10px;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    h2 {
+      margin: 0;
+      font-size: 1.075rem;
+      line-height: 1.5;
+      font-weight: 700;
+      text-wrap: balance;
+    }
+    .description {
+      margin: 12px 0 0;
+      font-size: .9rem;
+      line-height: 1.65;
+      text-wrap: balance;
+    }
+    .arrow {
+      position: absolute;
+      width: 34px;
+      height: 24px;
+      top: 64px;
+      right: -38px;
+      fill: none;
+      stroke: var(--red);
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Natywne details działa również bez JavaScriptu i z klawiaturą. */
+    .more { max-width: 740px; margin-inline: auto; }
+    .more summary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      min-height: 54px;
+      max-width: 100%;
+      padding: 15px 30px;
+      border: 2px solid var(--red);
+      border-radius: 29px;
+      background: var(--red);
+      color: white;
+      font-size: .8rem;
+      font-weight: 750;
+      letter-spacing: .07em;
+      list-style: none;
+      cursor: pointer;
+    }
+    .more summary::-webkit-details-marker { display: none; }
+    .more summary::after { content: "+"; font-size: 1.2rem; line-height: 1; }
+    .more[open] summary::after { content: "−"; }
+    .more summary:hover { background: white; color: var(--red); }
+    .more summary:focus-visible { outline: 3px solid var(--blue); outline-offset: 5px; }
+    .more__content {
+      margin-top: 28px;
+      padding: 24px 28px;
+      border-top: 3px solid var(--red);
+      background: white;
+      text-align: left;
+    }
+    .more__content h2 { margin-bottom: 10px; }
+    .more__content p { margin: 0; }
+
+    /* Pionowy proces na telefonach i mniejszych tabletach. */
+    @media (max-width: 900px) {
+      .process { padding-inline: 24px; }
+      .steps {
+        grid-template-columns: minmax(0, 1fr);
+        max-width: 360px;
+        margin: 44px auto 38px;
+        gap: 66px;
+      }
+      .arrow {
+        top: auto;
+        right: auto;
+        bottom: -45px;
+        left: calc(50% - 17px);
+        transform: rotate(90deg);
+      }
+      .icon { margin-bottom: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="process" aria-labelledby="process-title">
+      <header>
+        <h1 id="process-title">Jak działamy?</h1>
+        <p class="subtitle">Profesjonalnie, szybko, z dbałością o dobre relacje pomiędzy Tobą a klientem.</p>
+      </header>
+
+      <ol class="steps" role="list">
+        <li class="step">
+          <!-- Dwa dymki: granatowy z tyłu, czerwony z przodu. -->
+          <svg class="icon" viewBox="0 0 160 160" aria-hidden="true" focusable="false">
+            <circle class="ring" cx="80" cy="80" r="74"/>
+            <path class="blue" d="M94 60h20a10 10 0 0 1 10 10v27a10 10 0 0 1-10 10h-3v13l-17-13H76a10 10 0 0 1-10-10v-5"/>
+            <path d="M45 43h44a10 10 0 0 1 10 10v26a10 10 0 0 1-10 10H65L48 102V89h-3a10 10 0 0 1-10-10V53a10 10 0 0 1 10-10Z"/>
+            <path class="blue" d="M49 59h35M49 71h24"/>
+          </svg>
+          <span class="number">Krok 01</span>
+          <h2>Negocjacje polubowne z Twoim klientem</h2>
+          <p class="description">Rozmowa i poszukiwanie wspólnego rozwiązania.</p>
+          <svg class="arrow" viewBox="0 0 34 24" aria-hidden="true" focusable="false"><path d="M2 12h29M22 3l9 9-9 9"/></svg>
+        </li>
+
+        <li class="step">
+          <!-- Granatowy dokument oraz czerwone pióro ze stalówką. -->
+          <svg class="icon" viewBox="0 0 160 160" aria-hidden="true" focusable="false">
+            <circle class="ring" cx="80" cy="80" r="74"/>
+            <g class="blue">
+              <path d="M88 121H45V37h45l17 17v24M90 37v18h17"/>
+              <path d="M58 65h29M58 78h24M58 91h15M58 106h11"/>
+            </g>
+            <path d="m84 116 5-22 29-37a5 5 0 0 1 8 6L97 100Z"/>
+            <path d="m89 94 8 6M114 62l8 6M84 116l10-14"/>
+          </svg>
+          <span class="number">Krok 02</span>
+          <h2>Dopisanie danych dłużnika do Krajowego Rejestru Długów</h2>
+          <p class="description">Przekazanie informacji o niespłaconym zobowiązaniu.</p>
+          <svg class="arrow" viewBox="0 0 34 24" aria-hidden="true" focusable="false"><path d="M2 12h29M22 3l9 9-9 9"/></svg>
+        </li>
+
+        <li class="step">
+          <!-- Granatowa dłoń i moneta; czerwona strzałka w górę. -->
+          <svg class="icon" viewBox="0 0 160 160" aria-hidden="true" focusable="false">
+            <circle class="ring" cx="80" cy="80" r="74"/>
+            <circle class="blue" cx="70" cy="54" r="18"/>
+            <path d="M75 47h-7a4 4 0 0 0 0 8h4a4 4 0 0 1 0 8h-8M70 43v4M70 63v4M109 72V39M100 48l9-9 9 9"/>
+            <g class="blue">
+              <path d="m44 96 13-10h15l14 10h12a5 5 0 0 1 0 10H77"/>
+              <path d="m52 114 9-6 24 10a12 12 0 0 0 12-2l26-21a5 5 0 0 0-6-8l-15 10"/>
+            </g>
+            <path d="m32 98 10-7 17 24-10 7Z"/>
+          </svg>
+          <span class="number">Krok 03</span>
+          <h2>Spłata zadłużenia i odzyskanie kosztów windykacji</h2>
+          <p class="description">Odzyskanie należności i rozliczenie sprawy.</p>
+          <svg class="arrow" viewBox="0 0 34 24" aria-hidden="true" focusable="false"><path d="M2 12h29M22 3l9 9-9 9"/></svg>
+        </li>
+
+        <li class="step">
+          <!-- Przerywany okrąg i tekst wskazują warunkowy charakter kroku. -->
+          <svg class="icon" viewBox="0 0 160 160" aria-hidden="true" focusable="false">
+            <circle class="ring optional" cx="80" cy="80" r="74"/>
+            <g transform="rotate(-38 80 72)">
+              <rect class="blue" x="58" y="43" width="44" height="24" rx="3"/>
+              <path d="M64 43v24M96 43v24"/>
+              <path class="blue" d="M76 67v8h8v-8"/>
+              <rect x="75" y="75" width="10" height="39" rx="4"/>
+            </g>
+            <path class="blue" d="M54 119v-4a5 5 0 0 1 5-5h38a5 5 0 0 1 5 5v4M49 120h58"/>
+          </svg>
+          <span class="number">Krok 04 · w razie potrzeby</span>
+          <h2>W przypadku braku spłaty zadłużenia — rekomendacja działań sądowych</h2>
+          <p class="description">Wskazanie dalszej drogi dochodzenia należności.</p>
+        </li>
+      </ol>
+
+      <details class="more">
+        <summary>DOWIEDZ SIĘ WIĘCEJ</summary>
+        <div class="more__content">
+          <h2>Od rozmowy do rozwiązania sprawy</h2>
+          <p>Proces zaczyna się od kontaktu z klientem i negocjacji polubownych. Kolejne etapy obejmują dopisanie danych do Krajowego Rejestru Długów oraz rozliczenie spłaty. Jeśli zadłużenie pozostaje niespłacone, ostatnim krokiem jest rekomendacja działań sądowych.</p>
+        </div>
+      </details>
+    </section>
+  </main>
+</body>
+</html>
