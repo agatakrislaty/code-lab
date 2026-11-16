@@ -84,6 +84,11 @@
       stroke-width: 4;
     }
 
+    /* Niebieskie detale korzystają z tego samego koloru co nagłówki. */
+    .step__detail {
+      stroke: var(--navy);
+    }
+
     .step__ring--dashed {
       stroke-dasharray: 7 7;
     }
@@ -226,8 +231,8 @@
                aria-hidden="true" focusable="false">
             <circle class="step__ring" cx="72" cy="72" r="67"/>
             <path d="M43 46h39a9 9 0 0 1 9 9v19a9 9 0 0 1-9 9H60L45 94V83h-2a9 9 0 0 1-9-9V55a9 9 0 0 1 9-9Z"/>
-            <path d="M95 62h6a9 9 0 0 1 9 9v20a9 9 0 0 1-9 9h-2v10L85 100H73a9 9 0 0 1-9-9"/>
-            <path d="M47 59h30M47 69h20"/>
+            <path class="step__detail" d="M95 62h6a9 9 0 0 1 9 9v20a9 9 0 0 1-9 9h-2v10L85 100H73a9 9 0 0 1-9-9"/>
+            <path class="step__detail" d="M47 59h30M47 69h20"/>
           </svg>
 
           <span class="step__number">Krok 01</span>
@@ -246,8 +251,8 @@
           <svg class="step__icon" viewBox="0 0 144 144"
                aria-hidden="true" focusable="false">
             <circle class="step__ring" cx="72" cy="72" r="67"/>
-            <path d="M85 108H45V37h37l15 15v17"/>
-            <path d="M82 37v17h15M56 61h25M56 73h16M56 85h11"/>
+            <path class="step__detail" d="M85 108H45V37h37l15 15v17"/>
+            <path class="step__detail" d="M82 37v17h15M56 61h25M56 73h16M56 85h11"/>
             <!-- Pióro: korpus, stalówka i nacięcie. -->
             <path d="m70 104 7-22 25-25a6 6 0 0 1 9 9L86 91Z"/>
             <path d="m77 82 9 9M97 62l9 9M70 104l10-10"/>
@@ -272,8 +277,8 @@
                aria-hidden="true" focusable="false">
             <circle class="step__ring" cx="72" cy="72" r="67"/>
             <!-- Moneta i strzałka symbolizują odzyskanie środków. -->
-            <circle cx="65" cy="49" r="15"/>
-            <path d="M69 43h-6a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-6M65 39v4M65 55v4"/>
+            <circle class="step__detail" cx="65" cy="49" r="15"/>
+            <path class="step__detail" d="M69 43h-6a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-6M65 39v4M65 55v4"/>
             <path d="M98 67V40M89 49l9-9 9 9"/>
             <!-- Otwarta dłoń. -->
             <path d="m35 89 12-10 18 1 13 8h13a5 5 0 0 1 0 10H72"/>
@@ -302,8 +307,8 @@
                     cx="72" cy="72" r="67"/>
             <!-- Młotek sędziowski i podstawa. -->
             <g transform="rotate(-40 72 65)">
-              <rect x="53" y="43" width="38" height="24" rx="3"/>
-              <path d="M59 43v24M85 43v24"/>
+              <rect class="step__detail" x="53" y="43" width="38" height="24" rx="3"/>
+              <path class="step__detail" d="M59 43v24M85 43v24"/>
               <rect x="68" y="67" width="8" height="35" rx="3"/>
             </g>
             <path d="M51 105h44a5 5 0 0 1 5 5v3H46v-3a5 5 0 0 1 5-5Z"/>
