@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jak działamy?</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: #F5F5F5;
+    color: #003D7A;
+    padding: 48px 20px;
+  }
+  .section { max-width: 1240px; margin: 0 auto; text-align: center; }
+  .section h1 { font-size: 2.6rem; color: #003D7A; margin-bottom: 8px; }
+  .section .subtitle { font-size: 1.05rem; color: #003D7A; margin-bottom: 48px; font-weight: 400; }
+  .steps { display: flex; align-items: flex-start; justify-content: center; gap: 8px; flex-wrap: wrap; }
+  .step { display: flex; flex-direction: column; align-items: center; max-width: 210px; text-align: center; }
+  .icon-circle {
+    width: 112px; height: 112px; border-radius: 50%;
+    border: 6px solid #DC143C; display: flex; align-items: center; justify-content: center;
+    margin-bottom: 18px; background: #fff;
+  }
+  .icon-circle.dashed { border-style: dashed; }
+  .icon-circle svg { width: 60px; height: 60px; }
+  .step-title { font-size: 1rem; font-weight: 700; color: #003D7A; margin-bottom: 6px; line-height: 1.25; }
+  .step-desc { font-size: 0.85rem; color: #003D7A; line-height: 1.35; }
+  .arrow { color: #DC143C; font-size: 2.4rem; font-weight: bold; margin-top: 40px; padding: 0 4px; }
+  .cta { margin-top: 48px; }
+  .cta button {
+    background: #DC143C; color: #fff; border: none; padding: 14px 36px;
+    border-radius: 28px; font-size: 1rem; font-weight: 700; cursor: pointer; letter-spacing: 1px;
+  }
+  .cta button:hover { opacity: 0.9; }
+  @media (max-width: 820px) {
+    .steps { flex-direction: column; align-items: center; }
+    .arrow { transform: rotate(90deg); margin: 4px 0; }
+  }
+</style>
+</head>
+<body>
+<section class="section" aria-labelledby="jak-dzialamy">
+  <h1 id="jak-dzialamy">Jak działamy?</h1>
+  <p class="subtitle">Profesjonalnie, szybko, z dbatością o dobre relacje pomiędzy Tobą a klientem.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="icon-circle" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#DC143C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 12h34a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H20l-8 8v-8H6a4 4 0 0 1-4-4V16a4 4 0 0 1 4-4z"/>
+          <path d="M24 30h34a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4h-6v8l-8-8H24a4 4 0 0 1-4-4V34a4 4 0 0 1 4-4z"/>
+        </svg>
+      </div>
+      <div class="step-title">Negocjacje polubowne z Twoim klientem</div>
+      <div class="step-desc">Rozmowy i ustalenia z dłużnikiem.</div>
+    </div>
+    <div class="arrow" aria-hidden="true">→</div>
+    <div class="step">
+      <div class="icon-circle" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#DC143C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 4h24l14 14v42H14V4z"/>
+          <path d="M38 4v14h14"/>
+          <line x1="22" y1="26" x2="46" y2="26"/>
+          <line x1="22" y1="34" x2="46" y2="34"/>
+          <line x1="22" y1="42" x2="40" y2="42"/>
+          <path d="M48 44l4 4m0 0l-4 4m4-4h-8"/>
+        </svg>
+      </div>
+      <div class="step-title">Dopisanie danych dłużnika do Krajowego Rejestru Długów</div>
+      <div class="step-desc">Formalna rejestracja zadłużenia.</div>
+    </div>
+    <div class="arrow" aria-hidden="true">→</div>
+    <div class="step">
+      <div class="icon-circle" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#DC143C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="20" cy="22" r="10"/>
+          <path d="M20 16v12M14 22h12"/>
+          <path d="M40 10l8 8-8 8-8-8z"/>
+          <path d="M40 22v24M32 38l8 8 8-8"/>
+          <path d="M12 48c6-5 16-5 22 0"/>
+        </svg>
+      </div>
+      <div class="step-title">Spłata zadłużenia i odzyskanie kosztów windykacji</div>
+      <div class="step-desc">Odzyskane środki i koszty.</div>
+    </div>
+    <div class="arrow" aria-hidden="true">→</div>
+    <div class="step">
+      <div class="icon-circle dashed" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#DC143C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 50h44"/>
+          <path d="M18 50V22M46 50V22"/>
+          <path d="M14 22h36"/>
+          <path d="M32 12l12 10H20z"/>
+          <line x1="24" y1="30" x2="40" y2="30"/>
+          <line x1="24" y1="38" x2="40" y2="38"/>
+          <path d="M28 50V42M36 50V42"/>
+        </svg>
+      </div>
+      <div class="step-title">W przypadku braku spłaty zadłużenia - rekomendacja działań sądowych</div>
+      <div class="step-desc">Dalsze kroki prawne.</div>
+    </div>
+  </div>
+  <div class="cta">
+    <button type="button">DOWIEDŹ SIĘ WIĘCEJ</button>
+  </div>
+</section>
+</body>
+</html>
